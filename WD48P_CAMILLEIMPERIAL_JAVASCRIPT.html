@@ -1,0 +1,59 @@
+<!DOCTYPE>
+<html>	
+    <head>
+		<title>Conversion Calculator</title>
+    </head>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <body>
+        <div class="container m-5">
+            <div class="row col-3 p-3 bg-info border">
+                <label for="">Day/s</label>
+                <input type="text" id="from">
+            </div>
+            <div class="row col-3 p-3 bg-secondary border">
+                <label for="" class="form-label">Unit of Measure</label>
+                <select class="form-select p-3" name="" id="unit">
+                    <option value="choose text-info">Choose one...</option>
+                    <option value="hrs" id="hrs">Hours</option>
+                    <option value="min" id="min">Minutes</option>
+                    <option value="sec" id="sec">Seconds</option>
+                </select>
+            </div>
+            <div class="row col-3 p-3 bg-primary border">
+                <h4>Result</h4>
+                <div class="p-3 bg-warning" id="result"></div>
+            </div>
+            <div class="row col-3 p-3 bg-warning border">
+                <div onclick="calculate()" class="btn bg-success w-50">Calculate>>></div>
+            </div>
+        </div>
+
+        <script>
+            function calculate() {
+                var x = document.getElementById ("from").value;
+                
+                var a = document.getElementById ("unit").value;
+
+                
+                if (a = "Hours") {
+                    text = x * 24;
+                } else if (a = "Minutes") {
+                     text = x * 1440;
+                } else if (a = "Seconds") {
+                     text = x * 86400;
+                } else {
+                     text = "Input Value";
+                }
+                document.getElementById("result").innerHTML = text;
+
+            }
+
+        </script>
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    </body>
+</html>
