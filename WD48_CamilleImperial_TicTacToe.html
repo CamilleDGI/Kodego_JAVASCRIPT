@@ -1,0 +1,168 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title>JS TIC TAC TOE</title>
+	</head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   
+    <style>
+        #bet1, #bet2, #bet3, #bet4, #bet5, #bet6, #bet7, #bet8, #bet9 {
+            height: 100px; 
+            width: 100px;
+            text-align: center;
+            justify-content: center;
+            font-size: 50px;
+            border-radius: 20px;
+            background-color: aliceblue;
+            font-weight: 900;
+        }
+
+        #result {
+            display: none;
+        }
+
+        #winner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(66, 233, 122);
+            text-align: center;
+            font-size: 50px;
+            font-weight: 700;
+    }
+        h1, h3 {
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 700;
+        }
+    
+        #result {
+            width: 100px;
+        }
+
+    </style>
+
+    <body>
+    <div class="container p-3">
+        <h3 class="text-center">Let's Play</h3>
+        <h1 class="text-center">TIC TAC TOE</h1>
+        <div class="col-lg-5 col-md-8 col-sm-8 border rounded mx-auto bg-dark">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet1"></div>
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet2"></div>
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet3"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet4"></div>
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet5"></div>
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet6"></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet7"></div>
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet8"></div>
+                <div class="col-lg-3 p-2 m-2 border" onclick="myFunction(this)" id="bet9"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container container-fluid">
+        <p id="winner"></p>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-6 text-center">
+            <input type="button" onclick="reset()" value="Reset" class="bg-dark rounded text-white w-25" style="font-size: larger;">
+        </div>
+    </div>
+        <p id="result"></p>
+
+        <script>
+
+        document.getElementById("result").innerHTML = '';
+
+            function myFunction(element) {
+            if (result.innerHTML == '') {
+                result.innerHTML = 'X';
+            } else if (result.innerHTML == 'X') {
+                result.innerHTML = 'O';
+            } else if (result.innerHTML == 'O') {
+                result.innerHTML = 'X';
+            }
+            element.innerHTML = result.innerHTML;
+            checkForWinner();
+            }
+        
+        let bet1 = document.getElementById('bet1');
+        let bet2 = document.getElementById('bet2');
+        let bet3 = document.getElementById('bet3');
+        let bet4 = document.getElementById('bet4');
+        let bet5 = document.getElementById('bet5');
+        let bet6 = document.getElementById('bet6');
+        let bet7 = document.getElementById('bet7');
+        let bet8 = document.getElementById('bet8');
+        let bet9 = document.getElementById('bet9');
+        let winner = document.getElementById('winner');
+        
+        function checkForWinner() {
+        if (bet1.innerHTML == 'X' && bet2.innerHTML == 'X' && bet3.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet1.innerHTML == 'O' && bet2.innerHTML == 'O' && bet3.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet4.innerHTML == 'X' && bet5.innerHTML == 'X' && bet6.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet4.innerHTML == 'O' && bet5.innerHTML == 'O' && bet6.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet7.innerHTML == 'X' && bet8.innerHTML == 'X' && bet9.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet7.innerHTML == 'O' && bet8.innerHTML == 'O' && bet9.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet1.innerHTML == 'X' && bet4.innerHTML == 'X' && bet7.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet1.innerHTML == 'O' && bet4.innerHTML == 'O' && bet7.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet2.innerHTML == 'X' && bet5.innerHTML == 'X' && bet8.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet2.innerHTML == 'O' && bet5.innerHTML == 'O' && bet8.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet3.innerHTML == 'X' && bet6.innerHTML == 'X' && bet9.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet3.innerHTML == 'O' && bet6.innerHTML == 'O' && bet9.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet1.innerHTML == 'X' && bet5.innerHTML == 'X' && bet9.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet1.innerHTML == 'O' && bet5.innerHTML == 'O' && bet9.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (bet3.innerHTML == 'X' && bet5.innerHTML == 'X' && bet7.innerHTML == 'X') {
+            winner.innerHTML = '***PLAYER 1 WINS***';
+        } else if (bet3.innerHTML == 'O' && bet5.innerHTML == 'O' && bet7.innerHTML == 'O') {
+            winner.innerHTML = '***PLAYER 2 WINS***';
+        } else if (!isEmpty(bet1.innerHTML) && !isEmpty(bet2.innerHTML) && !isEmpty(bet3.innerHTML) 
+             && !isEmpty(bet4.innerHTML) && !isEmpty(bet5.innerHTML) && !isEmpty(bet6.innerHTML) 
+             && !isEmpty(bet7.innerHTML) && !isEmpty(bet8.innerHTML) && !isEmpty(bet9.innerHTML)){
+            winner.innerHTML = 'DRAW';
+        }
+    }
+
+                function reset() {
+            bet1.innerHTML = '';
+            bet2.innerHTML = '';
+            bet3.innerHTML = '';
+            bet4.innerHTML = '';
+            bet5.innerHTML = '';
+            bet6.innerHTML = '';
+            bet7.innerHTML = '';
+            bet8.innerHTML = '';
+            bet9.innerHTML = '';
+            result.innerHTML = '';
+            winner.innerHTML = '';
+            }
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5>
+    </body>
+
+</html>
